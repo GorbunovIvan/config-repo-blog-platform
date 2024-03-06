@@ -32,7 +32,7 @@ user-service:
   url: http://api-gateway:8765/user-service/api/v1/users # for docker
   auth:
 #    url: http://localhost:8765/user-service/auth
-   url: http://api-gateway:8765/user-service/auth # for docker
+    url: http://api-gateway:8765/user-service/auth # for docker
     username: "admin"
     password: "admin"
     requestHeader: "authorization"
