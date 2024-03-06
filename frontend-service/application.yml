@@ -1,0 +1,38 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: frontend-service
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+comment-service:
+#  graphql-url: http://localhost:8765/comment-service/graphql
+  graphql-url: http://api-gateway:8765/comment-service/graphql # for docker
+
+post-service:
+  grpc:
+#    host: localhost
+    host: post-service # for docker
+    port: 9090
+
+user-service:
+#  url: http://localhost:8765/user-service/api/v1/users
+  url: http://api-gateway:8765/user-service/api/v1/users # for docker
+  auth:
+#    url: http://localhost:8765/user-service/auth
+   url: http://api-gateway:8765/user-service/auth # for docker
+    username: "admin"
+    password: "admin"
+    requestHeader: "authorization"

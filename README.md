@@ -1,0 +1,1 @@
+Git repository folder to store application properties of microservices of project "blog-platform-spring-cloud".

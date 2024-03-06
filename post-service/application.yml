@@ -1,0 +1,23 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: post-service
+  datasource:
+#    url: jdbc:postgresql://localhost:5432/post-service-blog-platform
+    url: jdbc:postgresql://postgres-db:5432/post-service-blog-platform # for docker
+    username: postgres
+    password: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${random.uuid}
+
+grpc:
+  server:
+    port: 9090 # default
